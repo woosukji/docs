@@ -1,72 +1,68 @@
 {
   "$schema": "https://mintlify.com/schema.json",
-  "name": "Starter Kit",
+  "name": "Reliv 가이드",
   "logo": {
-    "dark": "/logo/dark.svg",
-    "light": "/logo/light.svg"
+    "dark": "/logo/logo.svg",
+    "light": "/logo/logo.svg"
   },
   "favicon": "/favicon.svg",
   "colors": {
-    "primary": "#0D9373",
-    "light": "#07C983",
-    "dark": "#0D9373",
+    "primary": "#7C3AED",
+    "light": "#ab80f3",
+    "dark": "#7C3AED",
     "anchors": {
-      "from": "#0D9373",
-      "to": "#07C983"
+      "from": "#7C3AED",
+      "to": "#ab80f3"
     }
   },
   "topbarLinks": [
     {
       "name": "Support",
-      "url": "mailto:hi@mintlify.com"
+      "url": "mailto:jackson@reliv.ai"
     }
   ],
   "topbarCtaButton": {
-    "name": "Dashboard",
-    "url": "https://dashboard.mintlify.com"
+    "name": "홈페이지",
+    "url": "https://reliv.ai/"
   },
-  "tabs": [
-    {
-      "name": "API Reference",
-      "url": "api-reference"
-    }
-  ],
+  "tabs": [],
   "anchors": [
     {
-      "name": "Documentation",
+      "name": "Reliv 가이드 소개",
       "icon": "book-open-cover",
-      "url": "https://mintlify.com/docs"
-    },
-    {
-      "name": "Community",
-      "icon": "slack",
-      "url": "https://mintlify.com/community"
-    },
-    {
-      "name": "Blog",
-      "icon": "newspaper",
-      "url": "https://mintlify.com/blog"
+      "url": "https://relivai.mintlify.app/"
     }
   ],
   "navigation": [
     {
-      "group": "Get Started",
-      "pages": ["introduction", "quickstart", "development"]
+      "group": "Reliv 소개",
+      "pages": ["introduction"]
     },
     {
-      "group": "Essentials",
-      "pages": ["essentials/markdown", "essentials/code", "essentials/images", "essentials/settings", "essentials/navigation"]
-    },
-    {
-      "group": "API Documentation",
-      "pages": ["api-reference/introduction"]
-    },
-    {
-      "group": "Endpoint Examples",
+      "group": "Reliv 사용 가이드",
       "pages": [
-        "api-reference/endpoint/get",
-        "api-reference/endpoint/create",
-        "api-reference/endpoint/delete"
+        "guide/create",
+        {
+          "group": "테스트 케이스 작성하기",
+          "pages": [
+            "guide/write/write",
+            "guide/write/play",
+            "guide/write/special-action",
+            "guide/write/env-variable",
+            "guide/write/action-config",
+            "guide/write/mutate-actions"
+          ]
+        },
+        "guide/action-block",
+        {
+          "group": "액션 고급 사용법",
+          "pages": [
+            "guide/advanced/action-block-parameter",
+            "guide/advanced/component-action-config",
+            "guide/advanced/custom-action"
+          ]
+        },
+        "guide/run"
       ]
     }
   ],
