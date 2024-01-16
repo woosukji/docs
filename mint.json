@@ -30,13 +30,13 @@
     {
       "name": "Reliv 가이드 소개",
       "icon": "book-open-cover",
-      "url": "https://relivai.mintlify.app/"
+      "url": "https://relivai.mintlify.app/introduction"
     }
   ],
   "navigation": [
     {
       "group": "Reliv 소개",
-      "pages": ["introduction"]
+      "pages": ["introduction", "product"]
     },
     {
       "group": "Reliv 사용 가이드",
