@@ -1,4 +1,112 @@
 ---
 title: "커스텀 액션"
-description: "Description of your new file."
+description: "코드를 통해 액션을 정의할 수 있습니다."
 ---
+
+---
+
+보다 유연하고 다양한 테스트 케이스 작성을 위해, **Playwright 기반의 코드로 액션을 정의할 수 있습니다**.
+
+## 1. 커스텀 액션 생성하기
+
+Reliv 에디터 **\[Test Steps\]** 패널 우상단 **\[+\] 버튼 > \[Add Custom Action\]** 버튼을 눌러 커스텀 액션을 추가할 수 있습니다.
+
+커스텀 액션의 **\[>\]** (상세보기) 버튼을 클릭하여 코드를 작성할 수 있습니다.
+
+<img src="/assets/advanced/custom-action/custom-action.png" />
+
+## 2. 커스텀 액션 코드 작성하기
+
+다음과 같은 playwright object들을 custom code 내에서 사용할 수 있습니다.
+
+- [browser](https://playwright.dev/docs/api/class-browser)
+- [context](https://playwright.dev/docs/api/class-browsercontext)
+- [page](https://playwright.dev/docs/api/class-page)
+- [expect](https://playwright.dev/docs/test-assertions)
+
+자세한 API 설명은 [Playwright Docs](https://playwright.dev/docs/locators)를 참고하시기 바랍니다.
+
+## 3. 커스텀 액션 코드 예시 Reference
+
+#### Click
+
+```jsx
+await page.getByRole("button", { name: "구매" }).click();
+
+await page.locator("nav").getByRole("link", { name: "튜터" }).click();
+```
+
+#### Fill
+
+```jsx
+await page.locator(`input[value="Reliv 초등학교"]`).fill("Reliv 중학교");
+```
+
+#### Hover
+
+```jsx
+await page
+  .locator("#AdminListItem")
+  .filter({ hasText: "Reliv Test Channel" })
+  .hover();
+```
+
+#### Navigate
+
+```jsx
+await page.goto("https://google.com/");
+```
+
+#### Check URL
+
+```jsx
+await expect(page).toHaveURL(/https:\/\/google\.com\/products/);
+```
+
+#### Handling iframes
+
+```jsx
+await page
+  .locator(`iframe[title="Modal Message"]`)
+  .frameLocator(":scope")
+  .locator(`button.bz-close-btn`)
+  .click();
+```
+
+#### Handling popup page
+
+```jsx
+const pagePromise = context.waitForEvent("page");
+
+const googleBtn = page.getByAltText("구글로그인").click();
+
+const newPage = await pagePromise;
+await expect(newPage).toHaveTitle(/Google/);
+
+await newPage.getByLabel(/Email/).fill("reliv@gmail.com");
+
+await newPage.getByRole("button", { name: "Next" }).click();
+
+await newPage.getByLabel("Enter your password").fill("testtest");
+
+await newPage.locator("#passwordNext").click();
+```
+
+#### Using for loop
+
+```jsx
+const trialLinks = await page.locator("#Card");
+
+expect(trialLinks).toBeVisible();
+const linkCount = await trialLinks.count();
+
+for (let i = 0; i < linkCount; i++) {
+  await trialLinks.nth(i).click();
+  await expect(page).toHaveURL(/https:\/\/google\.com\/products/);
+  await page.goBack();
+}
+```
+
+#### Evaluating custom JS code
+
+https://playwright.dev/docs/evaluating

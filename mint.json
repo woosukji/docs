@@ -46,10 +46,9 @@
           "group": "테스트 케이스 작성하기",
           "pages": [
             "guide/write/write",
-            "guide/write/play",
             "guide/write/special-action",
             "guide/write/env-variable",
-            "guide/write/action-config",
+            "guide/write/action-settings",
             "guide/write/mutate-actions"
           ]
         },
@@ -58,7 +57,7 @@
           "group": "액션 고급 사용법",
           "pages": [
             "guide/advanced/action-block-parameter",
-            "guide/advanced/component-action-config",
+            "guide/advanced/component-action-condition",
             "guide/advanced/custom-action"
           ]
         },
