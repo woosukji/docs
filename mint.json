@@ -30,7 +30,7 @@
     {
       "name": "Reliv 가이드 소개",
       "icon": "book-open-cover",
-      "url": "/"
+      "url": "introduction"
     }
   ],
   "navigation": [
@@ -43,7 +43,7 @@
       "pages": [
         "guide/create",
         {
-          "group": "테스트 케이스 작성하기",
+          "group": "테스트 작성하기",
           "pages": [
             "guide/write/write",
             "guide/write/special-action",
@@ -56,7 +56,6 @@
         {
           "group": "액션 고급 사용법",
           "pages": [
-            "guide/advanced/action-block-parameter",
             "guide/advanced/component-action-condition",
             "guide/advanced/custom-action"
           ]
