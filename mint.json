@@ -36,7 +36,7 @@
   "navigation": [
     {
       "group": "Reliv 소개",
-      "pages": ["introduction", "product"]
+      "pages": ["introduction", "getting-started", "product"]
     },
     {
       "group": "Reliv 사용 가이드",
