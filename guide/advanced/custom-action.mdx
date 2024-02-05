@@ -68,11 +68,11 @@ await expect(page).toHaveURL(/https:\/\/google\.com\/products/);
 ```jsx
 const clipboardText = await page.evaluate("navigator.clipboard.readText()");
 
-// 클립보드 값이 대상 텍스트를 포함하는지 체크
-expect(clipboardText).toContain("text");
-
 // 클립보드 값이 정확히 일치하는지 체크
 expect(clipboardText).toEqual("equalText");
+
+// 클립보드 값이 대상 텍스트를 포함하는지 체크
+expect(clipboardText).toContain("text");
 ```
 
 #### Handling iframes
